@@ -10,7 +10,7 @@
   "homepage_url": "https://github.com/sinyu1012/RedirectMJike",
   "background": {
     "page": "main.html"
-},
+  },
   "permissions": [
     "webRequest",
     "https://m.okjike.com/*",
