@@ -1,0 +1,19 @@
+{
+  "name": "即刻Web",
+  "description" : "移动端即刻网页直接切换为 Web 版",
+  "version": "1.1",
+  "manifest_version": 2,
+  "browser_action": {
+      "default_icon": "jike.png",
+      "default_title": "即刻Web"
+  },
+  "homepage_url": "https://github.com/sinyu1012",
+  "background": {
+    "page": "main.html"
+},
+  "permissions": [
+    "webRequest",
+    "https://*/*",
+    "webRequestBlocking"
+  ]
+}
