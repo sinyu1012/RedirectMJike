@@ -1,19 +1,19 @@
 {
-  "name": "即刻Web",
-  "description" : "移动端即刻网页直接切换为 Web 版",
-  "version": "1.1",
+  "name": "重定向M.JIKE",
+  "description" : "将即刻移动端网页重定向到 Web 版进行访问",
+  "version": "1.0",
   "manifest_version": 2,
   "browser_action": {
       "default_icon": "jike.png",
-      "default_title": "即刻Web"
+      "default_title": "重定向M.JIKE"
   },
-  "homepage_url": "https://github.com/sinyu1012",
+  "homepage_url": "https://github.com/sinyu1012/RedirectMJike",
   "background": {
     "page": "main.html"
 },
   "permissions": [
     "webRequest",
-    "https://*/*",
+    "https://m.okjike.com/*",
     "webRequestBlocking"
   ]
 }
