@@ -1,7 +1,7 @@
 {
   "name": "重定向M.JIKE",
   "description" : "将即刻移动端网页重定向到 Web 版进行访问",
-  "version": "1.0",
+  "version": "1.1",
   "manifest_version": 2,
   "browser_action": {
       "default_icon": "jike.png",
