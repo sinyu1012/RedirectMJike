@@ -7,5 +7,6 @@ chrome.webRequest.onBeforeRequest.addListener(function interceptRequest(request)
 	realUrl = realUrl.replace('/originalPosts/','/originalPost/')
 	realUrl = realUrl.replace('/users/','/u/')
 	realUrl = realUrl.replace('/topics/','/topic/')
+	realUrl = realUrl.replace('/reposts/','/repost/')
 	return realUrl
   }
