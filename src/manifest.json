@@ -1,19 +1,29 @@
 {
   "name": "重定向M.JIKE",
-  "description" : "将即刻移动端网页重定向到 Web 版进行访问",
-  "version": "1.1",
-  "manifest_version": 2,
-  "browser_action": {
-      "default_icon": "jike.png",
-      "default_title": "重定向M.JIKE"
+  "description": "将即刻移动端网页重定向到 Web 版进行访问",
+  "version": "1.2",
+  "manifest_version": 3,
+  "action": {
+    "default_icon": "jike.png",
+    "default_title": "重定向M.JIKE"
   },
   "homepage_url": "https://github.com/sinyu1012/RedirectMJike",
-  "background": {
-    "page": "main.html"
+  "icons": {
+    "128": "jike.png"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_redirect",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
   },
   "permissions": [
-    "webRequest",
-    "https://m.okjike.com/*",
-    "webRequestBlocking"
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "https://m.okjike.com/*"
   ]
 }
