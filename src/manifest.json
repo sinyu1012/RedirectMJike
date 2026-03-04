@@ -1,29 +1,29 @@
 {
-  "name": "重定向M.JIKE",
-  "description": "将即刻移动端网页重定向到 Web 版进行访问",
-  "version": "1.2",
+  "name": "即刻重定向助手",
+  "description": "未登录时自动将即刻 Web 版帖子页面重定向到手机版（m.okjike.com），无需登录即可查看",
+  "version": "2.0",
   "manifest_version": 3,
-  "action": {
-    "default_icon": "jike.png",
-    "default_title": "重定向M.JIKE"
-  },
   "homepage_url": "https://github.com/sinyu1012/RedirectMJike",
   "icons": {
     "128": "jike.png"
   },
-  "declarative_net_request": {
-    "rule_resources": [
-      {
-        "id": "ruleset_redirect",
-        "enabled": true,
-        "path": "rules.json"
-      }
-    ]
+  "action": {
+    "default_icon": "jike.png",
+    "default_title": "即刻重定向助手",
+    "default_popup": "popup.html"
   },
   "permissions": [
-    "declarativeNetRequest"
+    "storage",
+    "activeTab"
   ],
-  "host_permissions": [
-    "https://m.okjike.com/*"
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://web.okjike.com/*"],
+      "js": ["utils.js", "content.js"],
+      "run_at": "document_start"
+    }
   ]
 }

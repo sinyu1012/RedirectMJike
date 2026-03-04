@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="jike.png" alt="即刻" class="logo">
+      <h1>即刻重定向助手</h1>
+    </div>
+
+    <!-- 开关 -->
+    <div class="section">
+      <div class="toggle-row">
+        <span class="label">未登录自动跳转手机版</span>
+        <label class="switch">
+          <input type="checkbox" id="enableToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <p class="hint">开启后，访问 web.okjike.com 帖子页面时，若未登录将自动跳转到 m.okjike.com</p>
+    </div>
+
+    <!-- 当前页快捷操作 -->
+    <div class="section" id="currentTabSection" style="display:none;">
+      <div class="section-title">当前页面</div>
+      <button id="currentTabBtn" class="btn"></button>
+    </div>
+
+    <!-- 链接转换器 -->
+    <div class="section">
+      <div class="section-title">链接转换</div>
+      <input type="text" id="urlInput" class="url-input" placeholder="粘贴即刻链接...">
+      <div id="convertResult" class="convert-result" style="display:none;">
+        <a id="resultLink" href="#" target="_blank"></a>
+        <button id="copyBtn" class="btn-small">复制</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="utils.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
