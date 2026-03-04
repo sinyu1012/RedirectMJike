@@ -26,7 +26,26 @@
     <!-- 当前页快捷操作 -->
     <div class="section" id="currentTabSection" style="display:none;">
       <div class="section-title">当前页面</div>
-      <button id="currentTabBtn" class="btn"></button>
+      <div id="pageInfo" class="page-info" style="display:none;">
+        <div class="page-title" id="pageTitle"></div>
+        <div class="page-desc" id="pageDesc"></div>
+      </div>
+      <div class="share-links" id="shareLinks" style="display:none;">
+        <div class="share-link-row">
+          <span class="share-label">Web 版</span>
+          <a id="webLink" href="#" target="_blank" class="share-url"></a>
+          <button class="btn-small copy-link-btn" data-target="webLink">复制</button>
+        </div>
+        <div class="share-link-row">
+          <span class="share-label">手机版</span>
+          <a id="mobileLink" href="#" target="_blank" class="share-url"></a>
+          <button class="btn-small copy-link-btn" data-target="mobileLink">复制</button>
+        </div>
+      </div>
+      <div class="share-actions">
+        <button id="currentTabBtn" class="btn" style="display:none;"></button>
+        <button id="copyShareBtn" class="btn" style="display:none;">复制分享文案</button>
+      </div>
     </div>
 
     <!-- 链接转换器 -->

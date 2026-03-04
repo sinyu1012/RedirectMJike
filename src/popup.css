@@ -145,6 +145,79 @@ input:checked + .slider::before {
   background: #eee;
 }
 
+/* Page Info */
+.page-info {
+  margin-bottom: 10px;
+  padding: 8px 10px;
+  background: #f8f8f8;
+  border-radius: 6px;
+}
+
+.page-title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.page-desc {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+  line-height: 1.4;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Share Links */
+.share-links {
+  margin-bottom: 10px;
+}
+
+.share-link-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: #f8f8f8;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.share-label {
+  font-size: 11px;
+  color: #999;
+  flex-shrink: 0;
+  width: 40px;
+}
+
+.share-url {
+  flex: 1;
+  color: #1a73e8;
+  text-decoration: none;
+  font-size: 11px;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.share-url:hover {
+  text-decoration: underline;
+}
+
+.share-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.share-actions .btn {
+  flex: 1;
+}
+
 /* URL Input */
 .url-input {
   width: 100%;
