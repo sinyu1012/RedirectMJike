@@ -2,6 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   const enableToggle = document.getElementById("enableToggle");
+  const mobileToWebToggle = document.getElementById("mobileToWebToggle");
   const currentTabSection = document.getElementById("currentTabSection");
   const currentTabBtn = document.getElementById("currentTabBtn");
   const copyShareBtn = document.getElementById("copyShareBtn");
@@ -17,12 +18,54 @@ document.addEventListener("DOMContentLoaded", function () {
   const copyBtn = document.getElementById("copyBtn");
 
   // 1. 加载开关状态
-  chrome.storage.sync.get({ enabled: true }, function (data) {
-    enableToggle.checked = data.enabled;
-  });
+  chrome.storage.sync.get(
+    { enabled: true, mobileToWebEnabled: true },
+    function (data) {
+      enableToggle.checked = data.enabled;
+      mobileToWebToggle.checked = data.mobileToWebEnabled;
+    }
+  );
 
   enableToggle.addEventListener("change", function () {
     chrome.storage.sync.set({ enabled: enableToggle.checked });
+  });
+
+  mobileToWebToggle.addEventListener("change", function () {
+    chrome.storage.sync.set({ mobileToWebEnabled: mobileToWebToggle.checked });
+  });
+
+  // 1.5 显示 Web 版登录状态
+  var loginStatusEl = document.getElementById("loginStatus");
+
+  function updateLoginStatusUI(loggedIn) {
+    if (loggedIn) {
+      loginStatusEl.textContent = "已登录";
+      loginStatusEl.className = "login-status-badge logged-in";
+    } else {
+      loginStatusEl.textContent = "未检测到";
+      loginStatusEl.className = "login-status-badge logged-out";
+    }
+  }
+
+  // 先显示缓存状态
+  chrome.storage.local.get({ webLoggedIn: false }, function (data) {
+    updateLoginStatusUI(data.webLoggedIn);
+  });
+
+  // 如果有 web.okjike.com 的 tab，尝试实时检测
+  chrome.tabs.query({ url: "https://web.okjike.com/*" }, function (tabs) {
+    var webTab = null;
+    for (var i = 0; i < tabs.length; i++) {
+      if (tabs[i].url && tabs[i].url.indexOf("/login") === -1) {
+        webTab = tabs[i];
+        break;
+      }
+    }
+    if (!webTab) return;
+
+    // 有非 login 的 web 版 tab → 已登录
+    chrome.storage.local.set({ webLoggedIn: true });
+    updateLoginStatusUI(true);
   });
 
   // 2. 检测当前标签页

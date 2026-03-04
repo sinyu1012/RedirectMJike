@@ -25,6 +25,11 @@
       "matches": ["https://web.okjike.com/*"],
       "js": ["utils.js", "content.js"],
       "run_at": "document_start"
+    },
+    {
+      "matches": ["https://m.okjike.com/*"],
+      "js": ["utils.js", "content-mobile.js"],
+      "run_at": "document_start"
     }
   ]
 }

@@ -218,6 +218,39 @@ input:checked + .slider::before {
   flex: 1;
 }
 
+/* Login Status */
+.login-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.login-status-label {
+  font-size: 12px;
+  color: #999;
+}
+
+.login-status-badge {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #f0f0f0;
+  color: #999;
+}
+
+.login-status-badge.logged-in {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.login-status-badge.logged-out {
+  background: #fff3e0;
+  color: #e65100;
+}
+
 /* URL Input */
 .url-input {
   width: 100%;

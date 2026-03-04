@@ -21,6 +21,18 @@
         </label>
       </div>
       <p class="hint">开启后，访问 web.okjike.com 帖子页面时，若未登录将自动跳转到 m.okjike.com</p>
+      <div class="toggle-row" style="margin-top: 12px;">
+        <span class="label">已登录自动跳转 Web 版</span>
+        <label class="switch">
+          <input type="checkbox" id="mobileToWebToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <p class="hint">开启后，访问 m.okjike.com 帖子页面时，若已登录 Web 版将自动跳转</p>
+      <div class="login-status-row">
+        <span class="login-status-label">Web 版登录状态</span>
+        <span id="loginStatus" class="login-status-badge">检测中</span>
+      </div>
     </div>
 
     <!-- 当前页快捷操作 -->

@@ -37,6 +37,9 @@
       if (!data.enabled || redirected) return;
       redirected = true;
 
+      // 标记未登录状态，供 content-mobile.js 使用
+      chrome.storage.local.set({ webLoggedIn: false });
+
       let mobileUrl;
       if (savedPostInfo.type === "repost") {
         mobileUrl = `https://m.okjike.com/reposts/${savedPostInfo.id}`;
@@ -87,14 +90,32 @@
 
   // 4. 定时兜底检查
   let checkCount = 0;
-  const maxChecks = 20;
+  const maxChecks = 12;
+  let loginDetected = false;
   const checkInterval = setInterval(function () {
     checkCount++;
     checkForLoginRedirect();
+
+    // 3 秒后提前判定：如果 URL 不是 login 且页面已开始加载，乐观存 true
+    if (
+      checkCount === 6 &&
+      !redirected &&
+      !loginDetected &&
+      savedPostInfo &&
+      document.readyState !== "loading" &&
+      !isLoginUrl(window.location.href)
+    ) {
+      loginDetected = true;
+      chrome.storage.local.set({ webLoggedIn: true });
+    }
+
     if (checkCount >= maxChecks || redirected) {
       clearInterval(checkInterval);
-      // 清理 sessionStorage
       if (!redirected) {
+        // 最终确认：没有跳转到 login → 用户已登录
+        if (savedPostInfo) {
+          chrome.storage.local.set({ webLoggedIn: true });
+        }
         try {
           sessionStorage.removeItem(STORAGE_KEY);
         } catch (e) {
