@@ -158,6 +158,10 @@ input:checked + .slider::before {
   font-weight: 600;
   line-height: 1.4;
   word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .page-desc {
