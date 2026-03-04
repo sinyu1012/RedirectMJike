@@ -1,7 +1,7 @@
 {
   "name": "即刻重定向助手",
   "description": "未登录时自动将即刻 Web 版帖子页面重定向到手机版（m.okjike.com），无需登录即可查看",
-  "version": "2.0",
+  "version": "2.1",
   "manifest_version": 3,
   "homepage_url": "https://github.com/sinyu1012/RedirectMJike",
   "icons": {
